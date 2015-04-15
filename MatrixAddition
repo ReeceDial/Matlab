@@ -11,3 +11,4 @@ elseif size(A)==size(B)
         end
     end
 end
+%Goal: add two matricies, throw error message 'size mismatch' if sizes do not match
