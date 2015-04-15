@@ -1,0 +1,14 @@
+function[x]=MatrixAddition(A,B)
+m=size(A,1);
+n=size(A);
+if size(A)~=size(B)
+    error('size mismatch');
+elseif size(A)==size(B)
+    x=size(A);
+    for i=1:m
+        for j=1:n
+            x(i,j)=A(i,j)+B(i,j);
+        end
+    end
+    x
+end
