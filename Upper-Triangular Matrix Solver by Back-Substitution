@@ -1,0 +1,15 @@
+function[x]=upper_backsub(A,R)
+x=size(A,1);                                        %Initialize vector X
+[Ai,Aj]=size(A);                                    %Get dimensions of A
+x(Ai,1)=R(Ai)/A(Ai,Aj);                             %Find lowest x value
+sum=0;                                              %Initialize sum
+for i=(Ai-1):-1:1                                   %Working i backwards
+    for j=1:Aj
+        if j~=i                                     %Not the target value
+            sum=sum+(A(i,j)*x(j));                  %Sum for (R-sum)/A=x
+        end
+    end
+    x(i,1)=(R(i)-sum)/A(i,i);                       %(R-sum)/A=x
+    sum=0;                                          %Revert sum
+end
+end
