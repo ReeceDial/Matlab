@@ -1,18 +1,15 @@
 function[x]=MatrixMultiplication(A,B)
 [xA,yA]=size(A);
 [xB,yB]=size(B);
-sum=0;
 x=zeros(xA,yB);
 if yA~=xB
     error('error: size mismatch');
-elseif yA==xB
-    x=size(xA,yB);
-    k=1;
-    for i=k:xA
-        for j=1:yB
-            sum=A(i,j)*B(i,j);
-            x(i,j)=
-            k=k+1;
+else
+    for i=1:xA
+        for j=1:yA
+            for k=1:yB
+                x(i,k) = x(i,k)+A(i,j)*B(j,k);
+            end
         end
     end
 end
